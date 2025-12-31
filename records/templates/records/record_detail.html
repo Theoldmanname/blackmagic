@@ -1,0 +1,10 @@
+{% extends 'records/base.html' %}
+
+{% block content %}
+<h1>{{ record.title }}</h1>
+<p>{{ record.description }}</p>
+<p><small>Created at: {{ record.created_at|date:'Y-m-d H:i' }}</small></p>
+<a href="{% url 'record_edit' record.pk %}" class="btn btn-primary">Edit</a>
+<a href="{% url 'record_delete' record.pk %}" class="btn btn-danger">Delete</a>
+<a href="{% url 'record_list' %}" class="btn btn-secondary">Back to list</a>
+{% endblock %}

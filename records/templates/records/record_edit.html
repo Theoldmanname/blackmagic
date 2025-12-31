@@ -1,0 +1,20 @@
+{% extends 'records/base.html' %}
+
+{% load form_tags %}
+
+{% block content %}
+<h1>{% if form.instance.pk %}Edit Record{% else %}New Record{% endif %}</h1>
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        {{ form.title.label_tag }}
+        {{ form.title|add_class:'form-control' }}
+    </div>
+    <div class="mb-3">
+        {{ form.description.label_tag }}
+        {{ form.description|add_class:'form-control' }}
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+    <a href="{% url 'record_list' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}
